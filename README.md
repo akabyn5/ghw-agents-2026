@@ -48,7 +48,8 @@ The idea reimagines the Octocat as an **astronaut running mission control** for 
 
 The first phase focused on ideation: a reference board of astronauts, satellites, antennas, and dashboard UI; a defined color palette; several thumbnail composition options; and early sketches integrating the "Space Dogs" and "ARPIP" identity into the scene.
 
-![Rough sketch concept and mood board](./octocat-sketch-concept.jpeg)
+![Rough sketch concept and mood board](<img width="1402" height="1122" alt="octocat-sketch-concept" src="https://github.com/user-attachments/assets/043871a9-947a-4d6b-a502-59ec6e1a3151" />
+)
 
 *Rough sketch concept — reference board, color palette exploration, composition thumbnails, and identity integration studies.*
 
@@ -56,7 +57,8 @@ The first phase focused on ideation: a reference board of astronauts, satellites
 
 The chosen composition was refined and rendered in full color: the Octocat in an astronaut suit labeled "ARPIP," working at a laptop and mission control panel, with a nanosatellite orbiting Earth, a ground station antenna receiving the signal, and a live telemetry readout (status, signal strength, battery, and temperature) on screen.
 
-![Final Mission Control Octocat artwork](./octocat-final-artwork.jpeg)
+![Final Mission Control Octocat artwork](<img width="1536" height="1024" alt="octocat-final-artwork" src="https://github.com/user-attachments/assets/4b851568-3f84-4d55-8cf3-24140bac5470" />
+
 
 *Final artwork — "Mission Control Octocat," the ARPIP mission assistant for the Space Dogs GHW 2026 initiative.*
 
