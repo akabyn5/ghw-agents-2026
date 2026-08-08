@@ -48,7 +48,8 @@ The idea reimagines the Octocat as an **astronaut running mission control** for 
 
 The first phase focused on ideation: a reference board of astronauts, satellites, antennas, and dashboard UI; a defined color palette; several thumbnail composition options; and early sketches integrating the "Space Dogs" and "ARPIP" identity into the scene.
 
-![Rough sketch concept and mood board](<img width="1402" height="1122" alt="octocat-sketch-concept" src="https://github.com/user-attachments/assets/043871a9-947a-4d6b-a502-59ec6e1a3151" />
+![Rough sketch concept and mood board](<img width="1402" height="1122" alt="octocat-sketch-concept" src="https://github.com/user-attachments/assets/de8ebad8-8daa-4bf8-ba5e-feb6c3a1d866" />
+
 )
 
 *Rough sketch concept — reference board, color palette exploration, composition thumbnails, and identity integration studies.*
