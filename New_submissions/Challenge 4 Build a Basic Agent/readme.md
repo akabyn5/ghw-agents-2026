@@ -1,130 +1,77 @@
-# Challenge 4: Build a Basic Agent – Completed ✅
+# ARPIP Mission Assistant CLI
 
-## 🎉 Team Challenge Summary
+A minimal command-line chatbot for Global Hack Week: Agent Week, Challenge 4. It uses the official `backboard-sdk` Python package and reads the API key only from the `BACKBOARD_API_KEY` environment variable.
 
-**Challenge Completed: Build a Basic Agent!** ✅  
-**Team:** Space Dogs  
-**Event:** Global Hack Week: Agents | Backboard.io  
+On first run, the app creates one Backboard assistant named `ARPIP Mission Assistant` and saves its `assistant_id` in `arpipp_assistant.json`. Later runs reuse that assistant and create a new thread for each program execution.
 
-We successfully directed R-CLI to build a real, stateful command-line chatbot that talks to the Backboard API, reuses the same assistant across runs, and remembers facts about us. Memory is what turns a simple chatbot into a true agent — and our memory test passed.
+## Install dependencies
 
----
+From this project directory in Windows PowerShell:
 
-## 📋 Challenge Overview
+```powershell
+python -m pip install -r requirements.txt
+```
 
-- **Challenge Name:** Challenge 4 – Build a Basic Agent  
-- **Event:** Global Hack Week: Agents  
-- **Difficulty:** Medium  
-- **Time Needed:** ~15 minutes  
-- **Status:** Successfully Completed ✅  
-- **Date Completed:** August 11, 2026  
-- **Project Folder:** `ghw-agents-challenge-4`  
-- **Agent Name:** ARPIP Mission Assistant  
+## Set BACKBOARD_API_KEY in Windows PowerShell
 
-### What We Built
-A minimal Python CLI chatbot powered by the Backboard API that:
-- Uses the official `backboard-sdk`
-- Reads the API key from the `BACKBOARD_API_KEY` environment variable (never hardcoded)
-- Creates an assistant once and reuses the same `assistant_id` across runs (saved locally)
-- Starts a **fresh thread** on every execution
-- Sends every message with `memory="Auto"` so facts are automatically saved and recalled
-- Remembers context about the user and the Space Dogs / ARPIP project between restarts
+For the current PowerShell session only:
 
----
+```powershell
+$env:BACKBOARD_API_KEY = "your-backboard-api-key"
+```
 
-## 🛠️ How We Built It
+For future PowerShell sessions:
 
-1. Created the project folder:
-   ```powershell
-   mkdir ghw-agents-challenge-4
-   cd ghw-agents-challenge-4
+```powershell
+[Environment]::SetEnvironmentVariable("BACKBOARD_API_KEY", "your-backboard-api-key", "User")
+```
 
-Started R-CLI and directed it with a clear, numbered prompt describing the exact requirements.
-The build agent:
-Inspected the workspace
-Implemented the chatbot with assistant persistence
-Created supporting files (requirements.txt, README.md, etc.)
-Handled Windows-specific considerations (PowerShell, no WSL required for this minimal version)
+After setting it permanently, open a new PowerShell window before running the chatbot.
 
-Ran the chatbot, shared personal and project facts, quit, restarted it, and confirmed memory worked.
+Do not paste your real API key into source files, screenshots, or terminal output you plan to share.
 
+## Run the chatbot
 
-📸 Proof of Completion – Memory Test
-Memory Recall Across Restarts
-<img src="memory-save.jpeg" alt="Memory Test Success">
-When asked
-“What do you remember about me and what I am working on?”
-The agent correctly recalled:
+```powershell
+python chatbot.py
+```
 
-Name: José
-Team: Space Dogs
-Project: ARPIP (Advanced Research Projects and International Programs)
-Challenge context: Global Hack Week – Agent Week, Challenge 4 on Windows
-Chatbot name: ARPIP Mission Assistant
-Key technical requirements (assistant persistence, new thread per run, memory="Auto", callsign SpaceDog-01, etc.)
+Type messages at the `You:` prompt. Type `quit` to exit.
 
-Build Process in Progress
-<img src="processing.jpeg" alt="Agent Working on the Chatbot">
-Project Setup
-<img src="Power-Shell-Windows-Installation-challenge-4.jpeg" alt="Project Folder Creation">
+The app prints the reused `assistant_id` and the newly created `thread_id` at startup. The `assistant_id` should stay the same across runs; the `thread_id` should change on each run.
 
-🔑 Core Concepts Demonstrated
+## Final memory test
 
+Run this test from Windows PowerShell after `BACKBOARD_API_KEY` is set.
 
+First execution, teach the assistant a fact:
 
+```powershell
+python chatbot.py
+```
 
+At the prompt, enter:
 
+```text
+Remember that my ARPIP test callsign is Nova-K9.
+quit
+```
 
+Second execution, start a new thread and ask for the fact:
 
+```powershell
+python chatbot.py
+```
 
+At the prompt, enter:
 
+```text
+What is my ARPIP test callsign?
+quit
+```
 
+Expected result:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ConceptHow We Used ItAssistantCreated once, ID saved and reusedThreadFresh thread on every program runMessageUser ↔ agent turns in the chat loopMemorymemory="Auto" so facts persist across sessions
-This is the exact architecture that makes Backboard agents stateful instead of “goldfish” chatbots.
-
-📂 Project Structure
-textghw-agents-challenge-4/
-├── chatbot.py (or equivalent)
-├── arpip_assistant.json          ← saved assistant_id
-├── requirements.txt
-├── README.md
-├── .gitignore
-└── (supporting files)
-
-🔗 Connection to Previous Challenges
-This challenge sits on top of everything we completed earlier:
-
-Challenge 1: Backboard account + GLOBALMLH2 promo credits
-Challenge 2: Dashboard walkthrough + memory & Nash exploration
-Challenge 3: R-CLI installation + first agent walkthrough (hello.py)
-
-We are now building agents with agents.
-
-💡 Key Takeaways
-
-Clear, numbered, outcome-focused prompts produce much better results from the build agent.
-Reusing the same assistant_id is the critical piece that makes memory work across runs.
-Directing an AI to write the code is a real skill — the better the description, the better the agent.
-We now have a working, stateful CLI agent ready for more advanced workflows in Challenges 5 and 6.
-
-
-Completed by: Space Dogs Team (José)
-Date: August 11, 2026
-Callsign: SpaceDog-01
-
-Basic agent built. Memory confirmed. Ready for multi-step agentic workflows! 🚀🤖
+- The `assistant_id` printed at startup is the same in both executions.
+- The `thread_id` printed at startup is different in each execution.
+- The assistant recalls `Nova-K9`, demonstrating memory across separate executions with the same assistant.
